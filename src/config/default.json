@@ -1,0 +1,14 @@
+{
+  "firebaseConfig": {
+    "apiKey": "AIzaSyC-lVc4GvuG8oku_6_xWj3x9CWVj--z0cc",
+    "authDomain": "mysavings-2b01f.firebaseapp.com",
+    "databaseURL": "https://mysavings-2b01f.firebaseio.com",
+    "projectId": "mysavings-2b01f",
+    "storageBucket": "STORmysavings-2b01f.appspot.comAGE_BUCKET",
+    "messagingSenderId": "175517271443",
+    "appId": "1:175517271443:web:8791213233532c2d"
+  },
+  "authorization": {
+    "defaultAuthPersistance": false
+  }
+}
