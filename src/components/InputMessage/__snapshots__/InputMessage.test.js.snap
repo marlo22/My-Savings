@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InputMessage /> snapshot 1`] = `
+<Styled(Text)>
+  Lorem ipsum
+</Styled(Text)>
+`;
