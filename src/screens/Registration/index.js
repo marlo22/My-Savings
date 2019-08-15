@@ -8,6 +8,7 @@ import { InputMessage } from '../../components';
 import { RulesModal } from '../../modals';
 
 import renderInputIcon from '../../utils/renderInputIcon';
+import { emailRegEx } from '../../utils/regEx';
 
 import { fontColor, primaryContrastColor } from '../../themes/';
 
@@ -65,8 +66,6 @@ const RegistrationScreen = () => {
   getInputMessage = field => inputStatuses[field] && inputStatuses[field].message;
 
   const validateEmail = () => {
-    const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
     if (!email) {
       return setInputStatus({ field: 'email', isValid: false, message: 'Proszę podać adres e-mail.' });
     }
@@ -119,13 +118,16 @@ const RegistrationScreen = () => {
       .catch(err => {
         Toast.show({
           text: err.message || 'Błąd',
-          buttonText: 'Zamknij'
+          buttonText: 'Zamknij',
+          type: 'danger',
+          duration: 2500
         });
       });
 
     Toast.show({
       text: 'Twoje konto zostało utworzone!',
-      buttonText: 'Zamknij'
+      buttonText: 'Zamknij',
+      type: 'success'
     });
   };
 

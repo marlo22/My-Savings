@@ -44,7 +44,9 @@ const LoginScreen = () => {
     remember: rememberMe,
     onError: err => Toast.show({
       text: err.message || 'Błąd',
-      buttonText: 'Zamknij'
+      buttonText: 'Zamknij',
+      type: 'danger',
+      duration: 2500
     })
   });
 
@@ -81,7 +83,7 @@ const LoginScreen = () => {
           </LoginButtonText>
         </LoginButton>
         <LoginActionsLink onPress={() => history.push('/register')}>Nie masz konta? Załóż je.</LoginActionsLink>
-        <LoginActionsLink>Zapomniane hasło.</LoginActionsLink>
+        <LoginActionsLink onPress={() => history.push('/reset-password')}>Zapomniane hasło.</LoginActionsLink>
       </LoginActionsWrapper>
     </Container>
   );

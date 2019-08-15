@@ -7,7 +7,7 @@ import defaultTheme from './src/themes/default';
 import { NativeRouter, Route, Switch } from 'react-router-native';
 import { RouteWithHeader } from './src/router';
 
-import { SplashScreen, RegistrationScreen } from './src/screens';
+import { SplashScreen, RegistrationScreen, ResetPasswordScreen } from './src/screens';
 
 const App = () => {
   return (
@@ -23,11 +23,12 @@ const App = () => {
                 path="/register"
                 component={RegistrationScreen}
               />
-              {/* <RouteWithHeader
+              <RouteWithHeader
                 exact
-                path="/remind-password"
-                component={SplashScreen}
-              /> */}
+                title="Resetuj hasło"
+                path="/reset-password"
+                component={ResetPasswordScreen}
+              />
             </Switch>
           </ThemeProvider>
         </Root>
