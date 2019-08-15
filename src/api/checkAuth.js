@@ -1,8 +1,6 @@
 import firebase from 'firebase';
 
-export default function checkAuth(params) {
-  const { onSuccess, onFailed, afterCheck } = params;
-
+export default function checkAuth({ onSuccess, onFailed, afterCheck }) {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       onSuccess && onSuccess();
