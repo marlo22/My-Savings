@@ -56,14 +56,14 @@ const LoginScreen = () => {
         <Item>
           <Input
             placeholder="Adres e-mail"
-            onChangeText={({ text }) => setEmail(text)}
+            onChangeText={value => setEmail(value)}
             value={email}
           />
         </Item>
         <Item last>
           <Input
             placeholder="Hasło"
-            onChangeText={({ text }) => setPassword(text)}
+            onChangeText={value => setPassword(value)}
             value={password}
             secureTextEntry
           />
