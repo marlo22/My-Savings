@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import firebase from '../../api/firebase';
 
-import { Text } from 'react-native';
 import { Form, Item, Label, Input, Button, CheckBox, Toast } from 'native-base';
 import { InputMessage } from '../../components';
 import { RulesModal } from '../../modals';
+
+import createAccount from '../../api/createAccount';
 
 import renderInputIcon from '../../utils/renderInputIcon';
 import { emailRegEx } from '../../utils/regEx';
@@ -29,6 +29,14 @@ const SubmitButton = styled(Button)`
 
 const SubmitButtonText = styled.Text`
   color: ${primaryContrastColor};
+`;
+
+const RulesCheckbox = styled(CheckBox)`
+  margin-right: 5px;
+`;
+
+const RulesLink = styled.Text`
+  text-decoration: underline;
 `;
 
 const labelStyle = { lineHeight: 13 };
@@ -114,21 +122,22 @@ const RegistrationScreen = () => {
   };
 
   const submit = async () => {
-    await firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch(err => {
-        Toast.show({
-          text: err.message || 'Błąd',
-          buttonText: 'Zamknij',
-          type: 'danger',
-          duration: 2500
-        });
-      });
+    try {
+      await createAccount({ email, password });
 
-    Toast.show({
-      text: 'Twoje konto zostało utworzone!',
-      buttonText: 'Zamknij',
-      type: 'success'
-    });
+      Toast.show({
+        text: 'Twoje konto zostało utworzone!',
+        buttonText: 'Zamknij',
+        type: 'success'
+      });
+    } catch(err) {
+      Toast.show({
+        text: err.message || 'Błąd',
+        buttonText: 'Zamknij',
+        type: 'danger',
+        duration: 2500
+      });
+    };
   };
 
   const emailStatus = getInputStatus('email');
@@ -199,12 +208,16 @@ const RegistrationScreen = () => {
       </Form>
 
       <CheckBoxWrapper>
-        <CheckBox
+        <RulesCheckbox
           checked={rulesAccepted}
           onPress={toggleRulesAccepted}
-          style={{ marginRight: 5 }}
         />
-        <CheckBoxText>Akceptuję postanowienia <Text style={{ textDecorationLine: 'underline'}} onPress={toggleRulesModalVisibility}>regulaminu</Text>.</CheckBoxText>
+        <CheckBoxText>
+          Akceptuję postanowienia{' '}
+          <RulesLink onPress={toggleRulesModalVisibility}>
+            regulaminu
+          </RulesLink>.
+        </CheckBoxText>
       </CheckBoxWrapper>
 
       <SubmitButton
