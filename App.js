@@ -7,7 +7,12 @@ import defaultTheme from './src/themes/default';
 import { NativeRouter, Route, Switch } from 'react-router-native';
 import { RouteWithHeader } from './src/router';
 
-import { SplashScreen, RegistrationScreen, ResetPasswordScreen } from './src/screens';
+import {
+  SplashScreen,
+  RegistrationScreen,
+  ResetPasswordScreen,
+  DashboardScreen
+} from './src/screens';
 
 const App = () => {
   return (
@@ -28,6 +33,12 @@ const App = () => {
                 title="Resetuj hasło"
                 path="/reset-password"
                 component={ResetPasswordScreen}
+              />
+              <RouteWithHeader
+                exact
+                title="MySavings"
+                path="/dashboard"
+                component={DashboardScreen}
               />
             </Switch>
           </ThemeProvider>

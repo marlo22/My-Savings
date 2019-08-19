@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-native';
 
-import { Button } from 'react-native';
 import { Loader } from '../../components';
 import { LoginScreen } from '../';
 
 import checkAuth from '../../api/checkAuth';
-import firebase from '../../api/firebase';
 
 const SplashScreen = () => {
   const [authChecked, setAuthChecked] = useState(false);
@@ -23,7 +22,7 @@ const SplashScreen = () => {
     return <Loader message="Trwa uruchamianie aplikacji..." />;
   }
 
-  return isLogged ? <Button onPress={() => firebase.auth().signOut()} title="Zalogowano! Wyloguj." /> : <LoginScreen />;
+  return isLogged ? <Redirect to="/dashboard" /> : <LoginScreen />;
 };
 
 export default SplashScreen;
