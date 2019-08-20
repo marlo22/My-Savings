@@ -42,7 +42,7 @@ export default function Header({ title }) {
             <Button onPress={context.toggleNav}>
               <Icon
                 type="AntDesign"
-                name={context.isNavOpen ? 'menuunfold' : 'menufold'}
+                name={context.isNavOpen ? 'menufold' : 'menuunfold'}
               />
             </Button>
           </Right>
