@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useRouter from 'use-react-router';
 
 import { GlobalContextConsumer } from '../../context/Global';
 
@@ -21,6 +22,8 @@ const NavMenuWrapper = styled(Container)`
 `;
 
 const NavMenu = () => {
+  const { history } = useRouter();
+
   const menuItems = [
     { text: 'Pulpit', iconName: 'home', onPress: () => console.warn('go to dashboard') },
     { text: 'Limity', iconName: 'timer', onPress: () => console.warn('go to limits') },
@@ -28,7 +31,7 @@ const NavMenu = () => {
     { text: 'Kategorie', iconName: 'folder-open', onPress: () => console.warn('go to categories') },
     { text: 'Statystyki', iconName: 'stats', onPress: () => console.warn('go to stats') },
     { text: 'Ustawienia', iconName: 'settings', onPress: () => console.warn('go to settings') },
-    { text: 'Wyloguj', iconName: 'person', onPress: logout }
+    { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push: history.push }) }
   ];
 
   return (
