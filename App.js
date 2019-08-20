@@ -15,6 +15,8 @@ import {
   DashboardScreen
 } from './src/screens';
 
+import { NavMenu } from './src/components';
+
 const App = () => {
   return (
     <GlobalContextProvider>
@@ -44,6 +46,7 @@ const App = () => {
                 />
               </Switch>
             </ThemeProvider>
+            <NavMenu />
           </Root>
         </StyleProvider>
       </NativeRouter>
