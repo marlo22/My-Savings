@@ -35,11 +35,11 @@ const NavMenu = () => {
     { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push: history.push }) }
   ];
 
-  // Proxy to disable navigation after click nav link.
+  // Proxy to disable navigation after nav link click.
   const onPressProxy = async onPressFn => {
     await onPressFn();
     toggleNav();
-  }
+  };
 
   return isNavOpen ? (
     <NavMenuWrapper>
