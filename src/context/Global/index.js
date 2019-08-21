@@ -5,8 +5,6 @@ const GlobalContext = React.createContext({
   toggleNav: () => null
 });
 
-export const GlobalContextConsumer = GlobalContext.Consumer;
-
 export const GlobalContextProvider = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
