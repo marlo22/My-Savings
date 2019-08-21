@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import useRouter from 'use-react-router';
 
-import { GlobalContextConsumer } from '../../context/Global';
+import globalContext from '../../context/Global';
 
 import { Container } from 'native-base';
 import { NavMenuItem } from '../';
@@ -22,6 +22,7 @@ const NavMenuWrapper = styled(Container)`
 `;
 
 const NavMenu = () => {
+  const { toggleNav, isNavOpen } = useContext(globalContext);
   const { history } = useRouter();
 
   const menuItems = [
@@ -34,15 +35,23 @@ const NavMenu = () => {
     { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push: history.push }) }
   ];
 
-  return (
-    <GlobalContextConsumer>
-      {context => context.isNavOpen ? (
-        <NavMenuWrapper>
-          {menuItems.map(item => <NavMenuItem key={item.text} {...item} />)}
-        </NavMenuWrapper>
-      ) : null}
-    </GlobalContextConsumer>
-  );
+  // Proxy to disable navigation after click nav link.
+  const onPressProxy = async fn => {
+    await fn();
+    toggleNav();
+  }
+
+  return isNavOpen ? (
+    <NavMenuWrapper>
+      {menuItems.map(item =>
+        <NavMenuItem
+          key={item.text}
+          {...item}
+          onPress={() => onPressProxy(item.onPress)}
+        />
+      )}
+    </NavMenuWrapper>
+  ) : null;
 }
 
 export default NavMenu;
