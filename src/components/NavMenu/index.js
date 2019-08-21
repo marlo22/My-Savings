@@ -36,8 +36,8 @@ const NavMenu = () => {
   ];
 
   // Proxy to disable navigation after click nav link.
-  const onPressProxy = async fn => {
-    await fn();
+  const onPressProxy = async onPressFn => {
+    await onPressFn();
     toggleNav();
   }
 
