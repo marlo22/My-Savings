@@ -10,5 +10,6 @@
   },
   "authorization": {
     "defaultAuthPersistance": false
-  }
+  },
+  "defaultLanguage": "en"
 }
