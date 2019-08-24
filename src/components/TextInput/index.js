@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { View } from 'react-native';
-import { Item, Label, Input, Icon, Form } from 'native-base';
+import { Label, Input, Icon } from 'native-base';
 
 const iconTypes = {
   valid: 'checkmark-circle',
@@ -17,12 +16,6 @@ const feedbackColor = {
 
 const FeedbackIcon = styled(Icon)`
   color: ${({ status }) => feedbackColor[status]};
-`;
-
-const Message  = styled.Text`
-  color: ${({ status }) => feedbackColor[status] || 'black'};
-  text-align: right;
-  margin-right: 10px;
 `;
 
 const TextInput = ({ label, validation = {}, itemProps = {}, labelProps = {}, inputProps = {} }) => {
