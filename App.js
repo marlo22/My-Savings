@@ -38,12 +38,14 @@ const App = () => {
                       <RouteWithHeader
                         exact
                         title="Zarejestruj się"
+                        hasNavMenu={false}
                         path="/register"
                         component={RegistrationScreen}
                       />
                       <RouteWithHeader
                         exact
                         title="Resetuj hasło"
+                        hasNavMenu={false}
                         path="/reset-password"
                         component={ResetPasswordScreen}
                       />

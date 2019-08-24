@@ -19,7 +19,7 @@ const HeaderTitle = styled(Title)`
   margin: 0 5px;
 `;
 
-export default function Header({ title }) {
+export default function Header({ title, hasNavMenu }) {
   const { toggleNav, isNavOpen } = useContext(globalContext)
   const { history } = useRouter();
 
@@ -38,17 +38,20 @@ export default function Header({ title }) {
         </HeaderWrapper>
       </Body>
       <Right>
-        <Button onPress={toggleNav}>
-          <Icon
-            type="AntDesign"
-            name={isNavOpen ? 'menufold' : 'menuunfold'}
-          />
-        </Button>
+        {hasNavMenu && (
+          <Button onPress={toggleNav}>
+            <Icon
+              type="AntDesign"
+              name={isNavOpen ? 'menufold' : 'menuunfold'}
+            />
+          </Button>
+        )}
       </Right>
     </NativeBaseHeader>
   );
 }
 
 Header.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  hasNavMenu: PropTypes.bool.isRequired
 };
