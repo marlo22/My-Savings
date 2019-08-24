@@ -4,5 +4,6 @@
   "secondaryColor": "#00a8e8",
   "thirdColor": "#007ea7",
   "fontColor": "#00171f",
-  "backgroundColor": "#ffffff"
+  "backgroundColor": "#ffffff",
+  "navMenuElevation": 99
 }

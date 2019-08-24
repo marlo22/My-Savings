@@ -9,7 +9,7 @@ import { NavMenuItem } from '../';
 
 import logout from '../../api/logout';
 
-import { secondaryColor } from '../../themes';
+import { secondaryColor, navMenuElevation } from '../../themes';
 
 const NavMenuWrapper = styled(Container)`
   background-color: ${secondaryColor};
@@ -42,7 +42,7 @@ const NavMenu = () => {
   };
 
   return isNavOpen ? (
-    <NavMenuWrapper>
+    <NavMenuWrapper elevation={navMenuElevation}>
       {menuItems.map(item =>
         <NavMenuItem
           key={item.text}
