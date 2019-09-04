@@ -1,5 +1,10 @@
 import React from 'react';
 
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import authReducer from './src/stores/reducers/auth';
+
 import { Root, StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
 import platform from './native-base-theme/variables/platform';
@@ -23,48 +28,52 @@ import {
 
 import { NavMenu } from './src/components';
 
+const store = createStore(authReducer);
+
 const App = () => {
   return (
-    <GlobalContextProvider>
-      <GlobalContext.Consumer>
-        {({ language }) => (
-          <IntlProvider messages={messages[language]} locale={language}>
-            <NativeRouter>
-              <StyleProvider style={getTheme(platform)}>
-                <Root>
-                  <ThemeProvider theme={defaultTheme}>
-                    <Switch>
-                      <Route exact path="/" component={SplashScreen} />
-                      <RouteWithHeader
-                        exact
-                        title="Zarejestruj się"
-                        hasNavMenu={false}
-                        path="/register"
-                        component={RegistrationScreen}
-                      />
-                      <RouteWithHeader
-                        exact
-                        title="Resetuj hasło"
-                        hasNavMenu={false}
-                        path="/reset-password"
-                        component={ResetPasswordScreen}
-                      />
-                      <RouteWithHeader
-                        exact
-                        title="MySavings"
-                        path="/dashboard"
-                        component={DashboardScreen}
-                      />
-                    </Switch>
-                  </ThemeProvider>
-                  <NavMenu />
-                </Root>
-              </StyleProvider>
-            </NativeRouter>
-          </IntlProvider>
-        )}
-      </GlobalContext.Consumer>
-    </GlobalContextProvider>
+    <Provider store={store}>
+      <GlobalContextProvider>
+        <GlobalContext.Consumer>
+          {({ language }) => (
+            <IntlProvider messages={messages[language]} locale={language}>
+              <NativeRouter>
+                <StyleProvider style={getTheme(platform)}>
+                  <Root>
+                    <ThemeProvider theme={defaultTheme}>
+                      <Switch>
+                        <Route exact path="/" component={SplashScreen} />
+                        <RouteWithHeader
+                          exact
+                          title="Zarejestruj się"
+                          hasNavMenu={false}
+                          path="/register"
+                          component={RegistrationScreen}
+                        />
+                        <RouteWithHeader
+                          exact
+                          title="Resetuj hasło"
+                          hasNavMenu={false}
+                          path="/reset-password"
+                          component={ResetPasswordScreen}
+                        />
+                        <RouteWithHeader
+                          exact
+                          title="MySavings"
+                          path="/dashboard"
+                          component={DashboardScreen}
+                        />
+                      </Switch>
+                    </ThemeProvider>
+                    <NavMenu />
+                  </Root>
+                </StyleProvider>
+              </NativeRouter>
+            </IntlProvider>
+          )}
+        </GlobalContext.Consumer>
+      </GlobalContextProvider>
+    </Provider>
   );
 };
 
