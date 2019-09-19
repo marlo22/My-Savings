@@ -1,3 +1,6 @@
+export { default as ButtonIcon } from './ButtonIcon';
+export { default as ColorIndicator } from './ColorIndicator';
+export { default as ColorPicker } from './ColorPicker';
 export { default as InputMessage } from './InputMessage';
 export { default as Loader } from './Loader';
 export { default as Modal } from './Modal';

@@ -1,4 +1,8 @@
 module.exports = {
-  pl: {},
-  en: {}
+  pl: {
+    register: 'Zarejestruj się'
+  },
+  en: {
+    register: 'Sign up'
+  }
 }

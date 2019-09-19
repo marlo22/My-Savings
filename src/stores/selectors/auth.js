@@ -1,2 +1,2 @@
-export const getUserData = state => state.get('userData');
-export const getUserId = state => state.getIn(['userData', 'uid']);
+export const getUserData = state => state.auth.get('userData');
+export const getUserId = state => state.auth.getIn(['userData', 'uid']);

@@ -23,16 +23,16 @@ const NavMenuWrapper = styled(Container)`
 
 const NavMenu = () => {
   const { toggleNav, isNavOpen } = useContext(globalContext);
-  const { history } = useRouter();
+  const { history: { push } } = useRouter();
 
   const menuItems = [
     { text: 'Pulpit', iconName: 'home', onPress: () => console.warn('go to dashboard') },
     { text: 'Limity', iconName: 'timer', onPress: () => console.warn('go to limits') },
     { text: 'Wydatki', iconName: 'cash', onPress: () => console.warn('go to spendings') },
-    { text: 'Kategorie', iconName: 'folder-open', onPress: () => console.warn('go to categories') },
+    { text: 'Kategorie', iconName: 'folder-open', onPress: () => push('categories') },
     { text: 'Statystyki', iconName: 'stats', onPress: () => console.warn('go to stats') },
     { text: 'Ustawienia', iconName: 'settings', onPress: () => console.warn('go to settings') },
-    { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push: history.push }) }
+    { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push }) }
   ];
 
   // Proxy to disable navigation after nav link click.

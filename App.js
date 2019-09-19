@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import authReducer from './src/stores/reducers/auth';
+import categoriesReducer from './src/stores/reducers/categories';
 
 import { Root, StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
@@ -23,12 +25,18 @@ import {
   SplashScreen,
   RegistrationScreen,
   ResetPasswordScreen,
-  DashboardScreen
+  DashboardScreen,
+  CategoriesScreen
 } from './src/screens';
 
 import { NavMenu } from './src/components';
 
-const store = createStore(authReducer);
+const reducers = combineReducers({
+  auth: authReducer,
+  categories: categoriesReducer
+});
+
+const store = createStore(reducers, applyMiddleware(thunk));
 
 const App = () => {
   return (
@@ -62,6 +70,12 @@ const App = () => {
                           title="MySavings"
                           path="/dashboard"
                           component={DashboardScreen}
+                        />
+                        <RouteWithHeader
+                          exact
+                          title="Kategorie"
+                          path="/categories"
+                          component={CategoriesScreen}
                         />
                       </Switch>
                     </ThemeProvider>
