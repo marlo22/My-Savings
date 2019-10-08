@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPicker snapshot 1`] = `
+<Styled(View)
+  elevation={999}
+  visible={true}
+>
+  <Styled(View)>
+    <TriangleColorPicker
+      defaultColor="#ff0000"
+      onColorChange={[Function]}
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+    <Styled(View)>
+      <Styled(Styled(Button))
+        onPress={[MockFunction]}
+      >
+        <Styled(Text)>
+          Anuluj
+        </Styled(Text)>
+      </Styled(Styled(Button))>
+      <Styled(Styled(Button))
+        onPress={[Function]}
+      >
+        <Styled(Text)>
+          Wybierz
+        </Styled(Text)>
+      </Styled(Styled(Button))>
+    </Styled(View)>
+  </Styled(View)>
+</Styled(View)>
+`;

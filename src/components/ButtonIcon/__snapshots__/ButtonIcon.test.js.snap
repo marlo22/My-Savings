@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonIcon snapshot 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[MockFunction]}
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <Styled(Styled(Icon))
+    name="user"
+    style={
+      Object {
+        "fontSize": 20,
+      }
+    }
+    type="AntDesign"
+  />
+</TouchableOpacity>
+`;
