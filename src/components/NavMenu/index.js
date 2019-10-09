@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
-import useRouter from 'use-react-router';
+import styled from 'styled-components/native';
+import { useHistory } from 'react-router-native';
 
 import globalContext from '../../context/Global';
 
@@ -23,7 +23,7 @@ const NavMenuWrapper = styled(Container)`
 
 const NavMenu = () => {
   const { toggleNav, isNavOpen } = useContext(globalContext);
-  const { history: { push } } = useRouter();
+  const { push } = useHistory();
 
   const menuItems = [
     { text: 'Pulpit', iconName: 'home', onPress: () => console.warn('go to dashboard') },

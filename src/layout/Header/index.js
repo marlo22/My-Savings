@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import useRouter from 'use-react-router';
+import { useHistory } from 'react-router-native';
 import styled from 'styled-components';
 
 import globalContext from '../../context/Global';
@@ -21,12 +21,12 @@ const HeaderTitle = styled(Title)`
 
 export default function Header({ title, hasNavMenu }) {
   const { toggleNav, isNavOpen } = useContext(globalContext)
-  const { history } = useRouter();
+  const { goBack } = useHistory();
 
   return (
     <NativeBaseHeader>
       <Left>
-        <BackButton onPress={history.goBack}>
+        <BackButton onPress={goBack}>
           <Icon type="AntDesign" name="back" />
         </BackButton>
       </Left>

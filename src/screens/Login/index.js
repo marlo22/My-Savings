@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import useRouter from 'use-react-router';
+import { useHistory } from 'react-router-native';
  
 import { Container, Form, Item, Input, Button, Toast, CheckBox } from 'native-base';
 
@@ -36,7 +36,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const { history } = useRouter();
+  const { push } = useHistory();
 
   const loginFn = () => login({
     email,
@@ -82,8 +82,8 @@ const LoginScreen = () => {
             Zaloguj się
           </LoginButtonText>
         </LoginButton>
-        <LoginActionsLink onPress={() => history.push('/register')}>Nie masz konta? Załóż je.</LoginActionsLink>
-        <LoginActionsLink onPress={() => history.push('/reset-password')}>Zapomniane hasło.</LoginActionsLink>
+        <LoginActionsLink onPress={() => push('/register')}>Nie masz konta? Załóż je.</LoginActionsLink>
+        <LoginActionsLink onPress={() => push('/reset-password')}>Zapomniane hasło.</LoginActionsLink>
       </LoginActionsWrapper>
     </Container>
   );
