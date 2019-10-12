@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> snapshot 1`] = `
+<TextInput
+  inputProps={
+    Object {
+      "disabled": true,
+    }
+  }
+  label="E-mail"
+  labelProps={
+    Object {
+      "style": Object {
+        "color": "red",
+      },
+    }
+  }
+  validation={
+    Object {
+      "status": "valid",
+    }
+  }
+>
+  <Styled(Label)
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    <Label
+      style={
+        Array [
+          Object {
+            "fontSize": 17,
+          },
+          Object {
+            "color": "red",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontSize": 17,
+            },
+            Object {
+              "color": "red",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 17,
+              },
+              Object {
+                "color": "red",
+              },
+            ]
+          }
+        >
+          E-mail
+        </Text>
+      </Text>
+    </Label>
+  </Styled(Label)>
+  <Styled(Input)
+    disabled={true}
+    style={
+      Object {
+        "border": "solid 1px red",
+      }
+    }
+  >
+    <Input
+      disabled={true}
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "flex": 1,
+            "fontSize": 17,
+            "height": 50,
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          },
+          Object {
+            "border": "solid 1px red",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        disabled={true}
+        editable={false}
+        placeholderTextColor="#575757"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontSize": 17,
+              "height": 50,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            Object {
+              "border": "solid 1px red",
+            },
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+      >
+        <TextInput
+          allowFontScaling={true}
+          disabled={true}
+          editable={false}
+          placeholderTextColor="#575757"
+          rejectResponderTermination={true}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "flex": 1,
+                "fontSize": 17,
+                "height": 50,
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              },
+              Object {
+                "border": "solid 1px red",
+              },
+            ]
+          }
+          underlineColorAndroid="rgba(0,0,0,0)"
+        />
+      </TextInput>
+    </Input>
+  </Styled(Input)>
+  <Styled(Styled(Icon))
+    name="checkmark-circle"
+    status="valid"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "WrappedComponent": [Function],
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "hUzqNt",
+            "rules": Array [
+              "
+  color: ",
+              [Function],
+              ";
+",
+            ],
+          },
+          "displayName": "Styled(Styled(Icon))",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": [Function],
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      name="checkmark-circle"
+      status="valid"
+    >
+      <Styled(Icon)
+        className="sc-bdVaJa hUzqNt"
+        name="checkmark-circle"
+        status="valid"
+      >
+        <Icon
+          className="sc-bdVaJa hUzqNt"
+          name="checkmark-circle"
+          status="valid"
+          style={
+            Object {
+              "color": "#000",
+              "fontSize": 30,
+            }
+          }
+        >
+          <Styled(IconNB)
+            className="sc-bdVaJa hUzqNt"
+            name="ios-checkmark-circle"
+            status="valid"
+            style={
+              Object {
+                "color": "#000",
+                "fontSize": 30,
+              }
+            }
+          >
+            <IconNB
+              className="sc-bdVaJa hUzqNt"
+              name="ios-checkmark-circle"
+              status="valid"
+              style={
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                ]
+              }
+            >
+              <Icon
+                allowFontScaling={false}
+                className="sc-bdVaJa hUzqNt"
+                name="ios-checkmark-circle"
+                size={12}
+                status="valid"
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                    Object {
+                      "color": "#000",
+                      "fontSize": 30,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  className="sc-bdVaJa hUzqNt"
+                  status="valid"
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                        Object {
+                          "color": "#000",
+                          "fontSize": 30,
+                        },
+                      ],
+                      Object {
+                        "fontFamily": "Ionicons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  <Text
+                    allowFontScaling={false}
+                    className="sc-bdVaJa hUzqNt"
+                    status="valid"
+                    style={
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 12,
+                        },
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "fontSize": 30,
+                          },
+                          Object {
+                            "color": "#000",
+                            "fontSize": 30,
+                          },
+                        ],
+                        Object {
+                          "fontFamily": "Ionicons",
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </Text>
+              </Icon>
+            </IconNB>
+          </Styled(IconNB)>
+        </Icon>
+      </Styled(Icon)>
+    </StyledComponent>
+  </Styled(Styled(Icon))>
+</TextInput>
+`;

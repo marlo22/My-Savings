@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal /> snapshot 1`] = `
+<Component
+  hardwareAccelerated={false}
+  visible={true}
+>
+  <Styled(View)>
+    <Styled(Text)>
+      Modal title
+    </Styled(Text)>
+    <Styled(Styled(Button))
+      onPress={[MockFunction]}
+      transparent={true}
+    >
+      <Styled(Styled(Icon))
+        name="close"
+      />
+    </Styled(Styled(Button))>
+  </Styled(View)>
+  <Text>
+    Lorem ipsum
+  </Text>
+</Component>
+`;
