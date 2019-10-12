@@ -2,7 +2,6 @@ import React from 'react';
 import { mount as shallow } from 'enzyme';
 
 import TextInput from './';
-jest.spyOn(console, 'error').mockImplementation(() => null);
 
 const label = 'E-mail';
 const labelProps = { style: { color: 'red' } };
