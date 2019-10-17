@@ -7,7 +7,7 @@ import globalContext from '../../context/Global';
 import { Container } from 'native-base';
 import { NavMenuItem } from '../';
 
-import logout from '../../api/logout';
+import { logout } from '../../api';
 
 import { secondaryColor, navMenuElevation } from '../../themes';
 

@@ -1,4 +1,4 @@
-import firebase from './firebase';
+import { firebase } from '../';
 
 export default function logout({ push }) {
   return new Promise(async (resolve, reject) => {

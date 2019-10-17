@@ -9,7 +9,7 @@ import { signIn } from '../../stores/actions/auth';
 import { Loader } from '../../components';
 import { LoginScreen } from '../';
 
-import checkAuth from '../../api/checkAuth';
+import { checkAuth } from '../../api';
 
 const SplashScreen = ({ signIn }) => {
   const [authChecked, setAuthChecked] = useState(false);

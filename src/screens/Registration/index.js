@@ -5,7 +5,7 @@ import { Form, Item, Label, Input, Button, CheckBox, Toast } from 'native-base';
 import { InputMessage } from '../../components';
 import { RulesModal } from '../../modals';
 
-import createAccount from '../../api/createAccount';
+import { createAccount } from '../../api';
 
 import renderInputIcon from '../../utils/renderInputIcon';
 import { emailRegEx } from '../../utils/regEx';

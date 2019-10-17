@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Form, Item, Label, Input, Button, Toast } from 'native-base';
 
-import firebaseResetPassword from '../../api/resetPassword';
+import { resetPassword as firebaseResetPassword } from '../../api';
 
 import renderInputIcon from '../../utils/renderInputIcon';
 import { emailRegEx } from '../../utils/regEx';

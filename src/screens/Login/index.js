@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-native';
  
 import { Container, Form, Item, Input, Button, Toast, CheckBox } from 'native-base';
 
-import login from '../../api/login';
+import { login } from '../../api';
 
 const CheckBoxWrapper = styled.View`
   flex-direction: row;

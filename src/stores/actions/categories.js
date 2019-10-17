@@ -15,7 +15,7 @@ import {
 
 import { getUserId } from '../selectors/auth';
 
-import firebase from '../../api/firebase';
+import { firebase } from '../../api';
 
 // GET_SPENDING_CATEGORIES
 
