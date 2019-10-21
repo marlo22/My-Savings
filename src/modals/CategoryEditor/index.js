@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { addSpendingCategory, editSpendingCategory } from '../../stores/actions/categories';
 
 import { Modal, ColorPicker } from '../../components';
-import { Form, Item, Label, Input, Button } from 'native-base';
+import { Form, Item, Label, Input, Button, Toast } from 'native-base';
 
 import { primaryContrastColor } from '../../themes';
 
@@ -41,9 +41,33 @@ const CategoryEditorModal = ({
 
   const handleSave = async () => {
     if (hasData) {
-      await dispatch(editSpendingCategory({ key: data.key, name, color }));
+      try {
+        await dispatch(editSpendingCategory({ key: data.key, name, color }));
+
+        Toast.show({
+          type: 'success',
+          text: 'Zmiany zostały zapisane.'
+        });
+      } catch {
+        Toast.show({
+          type: 'danger',
+          text: 'Wystąpił błąd podczas zapisywania zmian.'
+        });
+      }
     } else {
-      await dispatch(addSpendingCategory({ name, color }));
+      try {
+        await dispatch(addSpendingCategory({ name, color }));
+
+        Toast.show({
+          type: 'success',
+          text: 'Kategoria została dodana.'
+        });
+      } catch {
+        Toast.show({
+          type: 'danger',
+          text: 'Wystąpił błąd podczas dodawania kategorii.'
+        });
+      }
     }
 
     onClose();

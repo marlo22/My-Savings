@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import styled from 'styled-components';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getSpendingCategories, deleteSpendingCategory } from '../../stores/actions/categories';
 import { getCategories } from '../../stores/selectors/categories';
 
 import { Text, Alert } from 'react-native';
-import { List, ListItem, Left, Right, Fab, Icon, Container } from 'native-base';
+import { List, ListItem, Left, Right, Fab, Icon, Container, Toast } from 'native-base';
 import { Loader, ButtonIcon, ColorIndicator } from '../../components';
 
 import { CategoryEditorModal } from '../../modals';
@@ -29,19 +28,22 @@ const AddButton = styled(Fab)`
   background-color: ${secondaryColor};
 `;
 
-export const CategoriesScreen = ({ userId, categories, getSpendingCategories, deleteSpendingCategory }) => {
+export const CategoriesScreen = ({}) => {
+  const dispatch = useDispatch();
+  const categories = useSelector(getCategories);
+
   const [loading, setLoading] = useState(false);
   const [editorData, setEditorData] = useState(null);
 
   useEffect(() => {
-    getCategories();
+    fetchCategories();
   }, []);
 
-  const getCategories = async () => {
+  const fetchCategories = async () => {
     setLoading(true);
     
     try {
-      await getSpendingCategories();
+      await dispatch(getSpendingCategories());
     } finally {
       setLoading(false);
     }
@@ -49,6 +51,22 @@ export const CategoriesScreen = ({ userId, categories, getSpendingCategories, de
 
   const clearEditorData = () =>
     setEditorData(null);
+
+  const deleteFn = async categoryId => {
+    try {
+      await dispatch(deleteSpendingCategory(categoryId));
+
+      Toast.show({
+        type: 'success',
+        text: 'Kategoria została usunięta.'
+      });
+    } catch {
+      Toast.show({
+        type: 'danger',
+        text: 'Wystąpił błąd podczas usuwania kategorii.'
+      });
+    }
+  }
 
   if (loading) {
     return <Loader message="Trwa wczytywanie..." />
@@ -79,7 +97,7 @@ export const CategoriesScreen = ({ userId, categories, getSpendingCategories, de
                           `Czy na pewno chcesz usunąć kategorię „${name}”?`, '',
                           [
                             { text: 'Nie' },
-                            { text: 'Tak', onPress: () => deleteSpendingCategory(key) }
+                            { text: 'Tak', onPress: () => deleteFn(key) }
                           ]
                         )
                       }
@@ -108,23 +126,10 @@ export const CategoriesScreen = ({ userId, categories, getSpendingCategories, de
   return 
 };
 
-const mapStateToProps = state => ({
-  categories: getCategories(state)
-});
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({
-    getSpendingCategories,
-    deleteSpendingCategory
-  }, dispatch);
-
 CategoriesScreen.propTypes = {
   getSpendingCategories: PropTypes.func.isRequired,
   deleteSpendingCategory: PropTypes.func.isRequired,
   categories: ImmutablePropTypes.map.isRequired
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CategoriesScreen);
+export default CategoriesScreen;
