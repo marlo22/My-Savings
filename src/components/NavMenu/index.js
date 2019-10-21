@@ -28,7 +28,7 @@ const NavMenu = () => {
   const menuItems = [
     { text: 'Pulpit', iconName: 'home', onPress: () => console.warn('go to dashboard') },
     { text: 'Limity', iconName: 'timer', onPress: () => console.warn('go to limits') },
-    { text: 'Wydatki', iconName: 'cash', onPress: () => console.warn('go to spendings') },
+    { text: 'Wydatki', iconName: 'cash', onPress: () => push('spendings') },
     { text: 'Kategorie', iconName: 'folder-open', onPress: () => push('categories') },
     { text: 'Statystyki', iconName: 'stats', onPress: () => console.warn('go to stats') },
     { text: 'Ustawienia', iconName: 'settings', onPress: () => console.warn('go to settings') },

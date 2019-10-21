@@ -10,7 +10,7 @@ import { Form, Item, Label, Input, Button } from 'native-base';
 
 import { primaryContrastColor } from '../../themes';
 
-const labelStyle = { lineHeight: 13 };
+const labelStyle = { width: 150 };
 
 const ButtonsGroup = styled.View`
   flex-direction: row;
@@ -56,13 +56,13 @@ const CategoryEditorModal = ({
       onClose={onClose}
     >
       <Form>
-        <Item floatingLabel>
+        <Item inlineLabel>
           <Label style={labelStyle}>
             Nazwa kategorii
           </Label>
           <Input onChangeText={setName} value={name} />
         </Item>
-        <Item floatingLabel>
+        <Item inlineLabel>
           <Label style={labelStyle}>
             Kolor kategorii
           </Label>

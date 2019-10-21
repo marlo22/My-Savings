@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 
 import authReducer from './src/stores/reducers/auth';
 import categoriesReducer from './src/stores/reducers/categories';
+import spendingsReducer from './src/stores/reducers/spendings';
 
 import { Root, StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
@@ -26,14 +27,16 @@ import {
   RegistrationScreen,
   ResetPasswordScreen,
   DashboardScreen,
-  CategoriesScreen
+  CategoriesScreen,
+  SpendingsScreen
 } from './src/screens';
 
 import { NavMenu } from './src/components';
 
 const reducers = combineReducers({
   auth: authReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  spendings: spendingsReducer
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -76,6 +79,12 @@ const App = () => {
                           title="Kategorie"
                           path="/categories"
                           component={CategoriesScreen}
+                        />
+                        <RouteWithHeader
+                          exact
+                          title="Wydatki"
+                          path="/spendings"
+                          component={SpendingsScreen}
                         />
                       </Switch>
                     </ThemeProvider>
