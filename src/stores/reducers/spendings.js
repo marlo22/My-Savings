@@ -11,7 +11,7 @@ const initialState = Map({
   spendings: Map()
 });
 
-function categoriesReducer(state = initialState, action) {
+function spendingsReducer(state = initialState, action) {
   switch (action.type) {
     case GET_SPENDINGS_SUCCESS:
       return state.set('spendings', Map(action.spendings));
@@ -26,4 +26,4 @@ function categoriesReducer(state = initialState, action) {
   }
 }
 
-export default categoriesReducer;
+export default spendingsReducer;

@@ -31,7 +31,7 @@ const NavMenu = () => {
     { text: 'Wydatki', iconName: 'cash', onPress: () => push('spendings') },
     { text: 'Kategorie', iconName: 'folder-open', onPress: () => push('categories') },
     { text: 'Statystyki', iconName: 'stats', onPress: () => console.warn('go to stats') },
-    { text: 'Ustawienia', iconName: 'settings', onPress: () => console.warn('go to settings') },
+    { text: 'Ustawienia', iconName: 'settings', onPress: () => push('settings') },
     { text: 'Wyloguj', iconName: 'person', onPress: () => logout({ push }) }
   ];
 

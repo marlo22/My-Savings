@@ -1,11 +1,11 @@
 import firebase from 'firebase';
 
 export default function checkAuth({ onSuccess, onFailed, afterCheck }) {
-  firebase.auth().onAuthStateChanged(user => {
+  firebase.auth().onAuthStateChanged(async user => {
     if (user) {
-      onSuccess && onSuccess(user);
+      onSuccess && await onSuccess(user);
     } else {
-      onFailed && onFailed();
+      onFailed && await onFailed();
     }
 
     afterCheck && afterCheck();
