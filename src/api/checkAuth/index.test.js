@@ -30,9 +30,11 @@ describe('checkAuth', () => {
   test('on auth change success should call onSuccess callback', () => {
     checkAuth({ onSuccess, onFailed, afterCheck });
 
-    expect(onSuccess).toHaveBeenCalled();
-    expect(onFailed).not.toHaveBeenCalled();
-    expect(afterCheck).toHaveBeenCalled();
+    setTimeout(() => {
+      expect(onSuccess).toHaveBeenCalled();
+      expect(onFailed).not.toHaveBeenCalled();
+      expect(afterCheck).toHaveBeenCalled();
+    });
   });
 
   test('on auth change failed should call onFailed callback', () => {
@@ -42,8 +44,10 @@ describe('checkAuth', () => {
 
     checkAuth({ onSuccess, onFailed, afterCheck });
 
-    expect(onSuccess).not.toHaveBeenCalled();
-    expect(onFailed).toHaveBeenCalled();
-    expect(afterCheck).toHaveBeenCalled();
+    setTimeout(() => {
+      expect(onSuccess).not.toHaveBeenCalled();
+      expect(onFailed).toHaveBeenCalled();
+      expect(afterCheck).toHaveBeenCalled();
+    });
   });
 });
