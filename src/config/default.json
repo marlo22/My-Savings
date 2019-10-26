@@ -11,5 +11,7 @@
   "authorization": {
     "defaultAuthPersistance": false
   },
-  "defaultLanguage": "en"
+  "defaultLanguage": "en",
+  "repositoryPackageJson": "https://raw.githubusercontent.com/marlo22/My-Savings/master/package.json",
+  "androidBuildUrl": "https://github.com/marlo22/My-Savings/tree/master/build"
 }

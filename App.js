@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
@@ -35,6 +35,8 @@ import {
 
 import { NavMenu } from './src/components';
 
+import { checkUpdate } from './src/utils'
+
 const reducers = combineReducers({
   auth: authReducer,
   categories: categoriesReducer,
@@ -45,6 +47,8 @@ const reducers = combineReducers({
 const store = createStore(reducers, applyMiddleware(thunk));
 
 const App = () => {
+  useEffect(checkUpdate, []);
+
   return (
     <Provider store={store}>
       <GlobalContextProvider>
