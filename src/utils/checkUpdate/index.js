@@ -1,11 +1,13 @@
 import { Linking } from 'react-native';
 
-import { version as currentVersion } from '../../../package.json';
+import { getVersion } from 'react-native-device-info';
 import { repositoryPackageJson, androidBuildUrl } from '../../config';
 
 import { Toast } from 'native-base';
 
 import { primaryColor } from '../../themes';
+
+const currentVersion = getVersion();
 
 export default function checkUpdate() {
   fetch(repositoryPackageJson)
