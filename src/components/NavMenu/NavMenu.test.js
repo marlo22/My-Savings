@@ -1,33 +1,51 @@
 import React from 'react';
-import { mount as shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import NavMenu from './';
-import GlobalContext from '../../context/Global';
 
 jest.mock('../../api/logout', () => jest.fn());
 
 const toggleNav = jest.fn();
 
-const component = shallow(
-  <GlobalContext.Provider value={{
+jest
+  .spyOn(React, 'useContext')
+  .mockImplementationOnce(() => ({
     isNavOpen: true,
     toggleNav
-  }}>
-    <NavMenu />
-  </GlobalContext.Provider>
+  }));
+
+const setup = () => shallow(
+  <NavMenu />
 );
 
-describe('<NavMenu />', () => {
-  afterAll(() => {
-    jest.unmock('../../api/logout');
-  });
+let component = setup();
 
+describe('<NavMenu />', () => {
   test('should render without errors', () => {
     expect(component).toBeTruthy();
   });
 
   test('snapshot', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  test('click menu item should call toggleNav context\'s function', () => {
+    const menuItem = component.find('NavMenuItem').last();
+    menuItem.simulate('press');
+    setTimeout(() => expect(toggleNav).toHaveBeenCalled());
+  });
+
+  test('if nav is close should return null', () => {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementationOnce(() => ({
+        isNavOpen: false,
+        toggleNav
+      }));
+
+    component = setup();
+
+    expect(component.html()).toBe(null);
   });
 
   // @TODO - test asynchronous onPressProxy

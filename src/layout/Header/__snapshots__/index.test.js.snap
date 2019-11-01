@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> snapshot 1`] = `
+<Styled(Header)>
+  <Styled(Left)>
+    <Styled(Styled(Button))
+      onPress={[MockFunction]}
+    >
+      <Styled(Icon)
+        name="back"
+        type="AntDesign"
+      />
+    </Styled(Styled(Button))>
+  </Styled(Left)>
+  <Styled(Body)>
+    <Styled(View)>
+      <Styled(Styled(Title))>
+        Dashboard
+      </Styled(Styled(Title))>
+    </Styled(View)>
+  </Styled(Body)>
+  <Styled(Right)>
+    <Styled(Button)
+      onPress={[MockFunction]}
+    >
+      <Styled(Icon)
+        name="menuunfold"
+        type="AntDesign"
+      />
+    </Styled(Button)>
+  </Styled(Right)>
+</Styled(Header)>
+`;

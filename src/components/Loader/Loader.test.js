@@ -1,16 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Loader from './';
-import { ThemeContext } from 'styled-components/native';
 
 const message = 'Lorem ipsum';
 const primaryColor = '#ff0000';
 const fontColor = '#000000';
 
-const component = mount(
-  <ThemeContext.Provider value={{ primaryColor, fontColor }}>
-    <Loader message={message} />
-  </ThemeContext.Provider>
+jest
+  .spyOn(React, 'useContext')
+  .mockImplementationOnce(() => ({
+    primaryColor,
+    fontColor
+  }));
+
+const component = shallow(
+  <Loader message={message} />
 );
 
 describe('<Loader />', () => {
@@ -23,12 +27,12 @@ describe('<Loader />', () => {
   });
 
   test('should set primary color as Spinner color', () => {
-    const spinner = component.find('Spinner');
+    const spinner = component.find('Styled(Spinner)');
     expect(spinner.prop('color')).toBe(primaryColor);
   });
 
   test('should set primary color as Spinner color', () => {
-    const messageText = component.find('Text').last();
+    const messageText = component.find('Styled(Text)').last();
     expect(messageText.text()).toBe(message);
   });
 });

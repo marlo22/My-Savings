@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 import globalContext from '../../context/Global';
 

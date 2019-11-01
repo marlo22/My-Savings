@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount as shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import TextInput from './';
 
@@ -9,7 +9,7 @@ const inputProps = { disabled: true };
 const validation = { status: 'valid' };
 const feedbackIconDisplayName = 'Styled(Icon)';
 
-const component = shallow(
+const component = mount(
   <TextInput
     label={label}
     labelProps={labelProps}

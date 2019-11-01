@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavMenuItem /> snapshot 1`] = `
+<Styled(Styled(ListItem))
+  onPress={[MockFunction]}
+>
+  <Styled(View)>
+    <Styled(Icon)
+      name="smile"
+    />
+  </Styled(View)>
+  <Text>
+    Hello world
+  </Text>
+</Styled(Styled(ListItem))>
+`;
